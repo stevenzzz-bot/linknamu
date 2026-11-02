@@ -4,6 +4,8 @@
 
 :root {
   color-scheme: light;
+  /* 강조색 — RGB 채널값. Tailwind 의 bg-accent, text-accent/10 등이 이 값을 쓴다. */
+  --accent: 47 158 91;
 }
 .dark {
   color-scheme: dark;

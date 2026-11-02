@@ -6,6 +6,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        accent: "rgb(var(--accent) / <alpha-value>)",
         brand: { DEFAULT: "#2f9e5b", light: "#e3f4ea", dark: "#4cc27c", deep: "#1f3328" },
       },
     },
