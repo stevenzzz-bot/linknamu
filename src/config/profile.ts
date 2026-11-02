@@ -33,7 +33,7 @@ export type Profile = {
   stats: { value: string; label: string }[];
   links: LinkItem[];
   installs: { images: Img[]; caption: string };
-  reviews: { text: string; source: string }[];
+  reviews: { tag: string; text: string; author: string; source: string }[];
   socials: SocialItem[];
   contact: {
     phone: string; // tel: 링크용 숫자
@@ -109,8 +109,25 @@ export const profile: Profile = {
     caption: "서울 신림 교육시설 · 미들백 100대",
   },
   reviews: [
-    { text: "이거말고는 다른의자 못써요", source: "스마트스토어 구매 리뷰" },
-    { text: "남편이 하나 사다달라그래서 하나 더 구매하려고요", source: "스마트스토어 구매 리뷰" },
+    {
+      tag: "편안함",
+      text: "헤드레스트도 조절이 되서 머리와 목을 잘 받쳐주어서 편하구요, 허리도 곡선으로 밀착됩니다. 팔 높이도 조절돼서 자세에 따라 조절해서 앉으니 편합니다.",
+      author: "bban님",
+      source: "스마트스토어 구매 리뷰",
+    },
+    // TODO: 리뷰 전문을 받으면 주석을 풀고 text 를 채운다. (지금은 뒷부분이 잘려 있음)
+    // {
+    //   tag: "품질",
+    //   text: "마감처리도 깔끔하게 잘 나왔고, 구석구석 훑어봐도 …",
+    //   author: "devi님",
+    //   source: "스마트스토어 구매 리뷰",
+    // },
+    {
+      tag: "재구매",
+      text: "남편이 하나 사다달라그래서 하나 더 구매하려고요",
+      author: "ziod님",
+      source: "스마트스토어 구매 리뷰",
+    },
   ],
   socials: [
     { id: "instagram", label: "인스타그램", url: "https://www.instagram.com/mychair.kr", icon: "instagram" },
