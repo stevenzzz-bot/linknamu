@@ -75,7 +75,8 @@ export const profile: Profile = {
     {
       id: "highback",
       title: "하이백 의자 보러 가기",
-      description: "별점 평균 4.9 · 5년 보증",
+      // 가격은 스마트스토어 즉시할인가 기준(포인트 적립 제외). 스토어 가격이 바뀌면 같이 고친다.
+      description: "별점 4.9 · 78,800원 무료배송",
       showStars: true,
       url: "https://smartstore.naver.com/kickrider/products/13684736019",
       featured: true,
@@ -98,7 +99,7 @@ export const profile: Profile = {
       id: "all-products",
       mark: "naver",
       title: "전체 상품 보기",
-      description: "하이백 · 미들백",
+      description: "하이백\u00a078,800원 · 미들백\u00a060,800원 (배송비\u00a0포함)",
       url: "https://smartstore.naver.com/kickrider",
     },
     {
