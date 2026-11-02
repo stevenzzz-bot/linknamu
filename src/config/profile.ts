@@ -31,6 +31,8 @@ export type SocialItem = {
 };
 
 export type Profile = {
+  /** 실제 사이트 주소 — 공유 미리보기(OG) 이미지 경로의 기준 */
+  siteUrl: string;
   name: string;
   bio: string;
   logo: string;
@@ -57,6 +59,7 @@ export type Profile = {
 const STORE_ADDRESS = "경기도 수원시 팔달구 세지로 420";
 
 export const profile: Profile = {
+  siteUrl: "https://mychairkr.vercel.app",
   name: "나의자랑",
   bio: "오래 앉는 사람을 위한 메쉬 의자",
   logo: "/logo.png",
