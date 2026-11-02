@@ -1,0 +1,22 @@
+import type { Profile } from "@/config/profile";
+
+export default function Reviews({ reviews }: { reviews: Profile["reviews"] }) {
+  return (
+    <section className="mt-10" aria-labelledby="reviews-title">
+      <h2 id="reviews-title" className="text-lg font-bold">
+        고객 리뷰
+      </h2>
+      <ul className="mt-3 grid gap-2">
+        {reviews.map((r) => (
+          <li key={r.text} className="rounded-2xl border border-line bg-surface px-5 py-4">
+            <p className="text-xs tracking-[0.15em] text-ink" aria-label="별점 5점 만점에 5점">
+              ★★★★★
+            </p>
+            <blockquote className="mt-1.5 text-[15px] font-medium leading-relaxed">“{r.text}”</blockquote>
+            <p className="mt-2 text-xs text-muted">{r.source}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}

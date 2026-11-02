@@ -3,39 +3,6 @@
  * 새 아이콘은 24x24 viewBox 기준 path 를 ICONS 에 추가한다.
  */
 const ICONS = {
-  chair: (
-    <>
-      <rect x="6" y="2" width="12" height="10" rx="2" />
-      <path d="M9 12v3M15 12v3M4 15h16M12 15v4M7 22l5-3 5 3" />
-    </>
-  ),
-  chat: <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" />,
-  quote: (
-    <>
-      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
-      <path d="M14 3v5h5M9 13h6M9 17h4" />
-    </>
-  ),
-  grid: (
-    <>
-      <rect x="3" y="3" width="7" height="7" rx="1.5" />
-      <rect x="14" y="3" width="7" height="7" rx="1.5" />
-      <rect x="3" y="14" width="7" height="7" rx="1.5" />
-      <rect x="14" y="14" width="7" height="7" rx="1.5" />
-    </>
-  ),
-  pin: (
-    <>
-      <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
-      <circle cx="12" cy="10" r="2.5" />
-    </>
-  ),
-  play: (
-    <>
-      <rect x="2.5" y="5" width="19" height="14" rx="3" />
-      <path d="M10 9.5v5l4.5-2.5z" />
-    </>
-  ),
   instagram: (
     <>
       <rect x="3" y="3" width="18" height="18" rx="5" />

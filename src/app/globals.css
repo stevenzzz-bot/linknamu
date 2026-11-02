@@ -4,9 +4,27 @@
 
 :root {
   color-scheme: light;
-  /* 강조색 — RGB 채널값. Tailwind 의 bg-accent, text-accent/10 등이 이 값을 쓴다. */
-  --accent: 47 158 91;
+  --bg: #f5f3f0;
+  --surface: #ffffff;
+  --ink: #2b2b2b; /* 메인 버튼·제목 */
+  --text-muted: #7a7570;
+  --border: #e6e1da;
+  --point: #e08a4e; /* 테라코타, 숫자 강조에만 */
 }
-.dark {
-  color-scheme: dark;
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", sans-serif;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+.title {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }

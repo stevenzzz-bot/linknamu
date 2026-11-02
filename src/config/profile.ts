@@ -2,7 +2,7 @@
  * 프로필 & 링크 설정 — 이 파일을 수정해 내 링크로 바꾼다.
  * - id: 링크마다 고유(links·socials 전체에서). 클릭 수 집계 키이므로 바꾸면 집계가 새로 시작된다.
  * - url: http(s)만 허용 (빌드/요청 시 검증).
- * - icon: src/components/Icon.tsx 에 정의된 이름.
+ * - SNS icon: src/components/Icon.tsx 에 정의된 이름.
  */
 import type { IconName } from "@/components/Icon";
 
@@ -11,10 +11,12 @@ export type LinkItem = {
   title: string;
   description?: string;
   url: string;
-  icon: IconName;
-  /** true 면 강조 카드(--accent 배경 + 흰 글씨) */
+  /** true 면 강조 카드(--ink 배경 + 흰 글씨) */
   featured?: boolean;
 };
+
+/** public/ 기준 경로. 파일이 없으면 회색 자리표시가 나온다. */
+type Img = { src: string; alt: string };
 
 export type SocialItem = {
   id: string;
@@ -26,8 +28,12 @@ export type SocialItem = {
 export type Profile = {
   name: string;
   bio: string;
-  avatar: string;
+  logo: string;
+  hero: Img & { label: string };
+  stats: { value: string; label: string }[];
   links: LinkItem[];
+  installs: { images: Img[]; caption: string };
+  reviews: { text: string; source: string }[];
   socials: SocialItem[];
   contact: {
     phone: string; // tel: 링크용 숫자
@@ -47,15 +53,20 @@ const STORE_ADDRESS = "경기도 수원시 팔달구 세지로 420";
 
 export const profile: Profile = {
   name: "나의자랑",
-  bio: "하이백 의자 · 학원·사무실 의자",
-  avatar: "/avatar.svg",
+  bio: "오래 앉는 사람을 위한 메쉬 의자",
+  logo: "/logo.png",
+  hero: { src: "/hero.jpg", alt: "책상 앞에 놓인 하이백 메쉬 의자", label: "NAJ-H01 하이백" },
+  stats: [
+    { value: "5년", label: "무상 보증" },
+    { value: "100대", label: "학원 단일 납품" },
+    { value: "125°", label: "자유 틸팅" },
+  ],
   links: [
     {
       id: "highback",
       title: "하이백 의자 보러 가기",
       description: "리뷰 52개, 5년 보증",
       url: "https://smartstore.naver.com/kickrider/products/13684736019",
-      icon: "chair",
       featured: true,
     },
     {
@@ -63,28 +74,24 @@ export const profile: Profile = {
       title: "카톡으로 바로 상담",
       description: "높이·사이즈 궁금한 점 물어보기",
       url: "http://pf.kakao.com/_Dggbn",
-      icon: "chat",
     },
     {
       id: "bulk-quote",
       title: "학원·사무실 대량 견적",
       description: "10대부터, 견적서 1영업일 안에",
       url: "https://mychairkr.netlify.app",
-      icon: "quote",
     },
     {
       id: "all-products",
       title: "전체 상품 보기",
       description: "하이백 · 미들백",
       url: "https://smartstore.naver.com/kickrider",
-      icon: "grid",
     },
     {
       id: "visit",
       title: "수원에서 직접 앉아보기",
       description: "방문 전 연락 주시면 안내드려요",
       url: `https://map.naver.com/p/search/${encodeURIComponent(STORE_ADDRESS)}`,
-      icon: "pin",
     },
     // TODO: 유튜브 조립영상 주소가 정해지면 주석을 풀고 url 을 채운다.
     // {
@@ -92,8 +99,18 @@ export const profile: Profile = {
     //   title: "조립 영상 보기",
     //   description: "혼자서 15분이면 끝나요",
     //   url: "https://www.youtube.com/...",
-    //   icon: "play",
     // },
+  ],
+  installs: {
+    images: [
+      { src: "/install1.jpg", alt: "메쉬 의자가 줄지어 놓인 교육시설 강의실" },
+      { src: "/install2.jpg", alt: "의자 박스를 가득 실은 납품 트럭" },
+    ],
+    caption: "서울 신림 교육시설 · 미들백 100대",
+  },
+  reviews: [
+    { text: "이거말고는 다른의자 못써요", source: "스마트스토어 구매 리뷰" },
+    { text: "남편이 하나 사다달라그래서 하나 더 구매하려고요", source: "스마트스토어 구매 리뷰" },
   ],
   socials: [
     { id: "instagram", label: "인스타그램", url: "https://www.instagram.com/mychair.kr", icon: "instagram" },

@@ -6,9 +6,12 @@
 
 ## 기능
 
-- **프로필** — 이름, 한 줄 소개, 프로필 사진
+- **히어로 이미지** — 제품 사진 + 모델명 라벨
+- **프로필** — 로고, 이름, 한 줄 소개
+- **숫자 3칸** — 보증 · 납품 실적 · 틸팅 각도
 - **링크 카드** — SNS · 블로그 링크를 카드로 나열, 클릭 시 새 탭
-- **다크모드** — 우측 상단 토글. 기본은 OS 설정, 선택은 브라우저에 저장 (첫 화면 깜빡임 없음)
+- **납품 현장 · 고객 리뷰** — 사진 2장, 리뷰 카드 2개
+- **하단** — 전화 상담 버튼, 이메일, 사업자 정보
 - **클릭 수 집계** — 링크별 클릭 횟수를 MongoDB에 기록하고 카드에 표시
 - **모바일 우선 반응형**
 
@@ -29,7 +32,8 @@ npm run dev                  # http://localhost:3000
 
 - `id` 는 링크마다 고유 — 클릭 수 집계 키라서 바꾸면 집계가 새로 시작됩니다.
 - `url` 은 `http`/`https` 만 허용됩니다.
-- 프로필 사진은 `public/` 에 넣고 `/파일명` 으로 지정합니다.
+- 이미지(`logo.png`, `hero.jpg`, `install1.jpg`, `install2.jpg`)는 `public/` 에 넣습니다. 파일이 없으면 회색 박스에 파일명이 표시됩니다.
+- 색은 `src/app/globals.css` 의 `:root` 변수(`--ink`, `--point` 등)에서 바꿉니다.
 
 ## 구조
 
@@ -40,7 +44,7 @@ src/
 │   ├── layout.tsx
 │   ├── go/[id]/route.ts    # 클릭 +1 → 원래 URL로 302
 │   └── api/clicks/route.ts # GET { [id]: count }
-├── components/             # ProfileHeader, LinkCard, ThemeToggle, ThemeScript
+├── components/             # Hero, ProfileHeader, Stats, LinkCard, Installs, Reviews …
 ├── config/profile.ts       # 프로필 & 링크 설정
 └── lib/                    # mongodb 연결, clicks, links 검증
 ```

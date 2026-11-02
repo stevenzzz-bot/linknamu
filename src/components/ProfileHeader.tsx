@@ -1,23 +1,20 @@
-import Image from "next/image";
+import AssetImage from "@/components/AssetImage";
 
-type Props = { name: string; bio: string; avatar: string };
+type Props = { name: string; bio: string; logo: string };
 
-export default function ProfileHeader({ name, bio, avatar }: Props) {
+export default function ProfileHeader({ name, bio, logo }: Props) {
   return (
-    <header className="mb-7 flex flex-col items-center text-center">
-      {avatar && (
-        <Image
-          src={avatar}
-          alt={`${name} 프로필 사진`}
-          width={96}
-          height={96}
-          priority
-          unoptimized={avatar.endsWith(".svg")}
-          className="h-24 w-24 rounded-full border-4 border-white bg-brand-light object-cover shadow-md dark:border-gray-900 dark:bg-brand-deep"
-        />
-      )}
-      <h1 className="mt-3 text-xl font-bold [word-break:keep-all] sm:text-2xl">{name}</h1>
-      {bio && <p className="mt-1 text-gray-600 [word-break:keep-all] dark:text-gray-400">{bio}</p>}
+    <header className="mt-6 flex items-center gap-4">
+      <AssetImage
+        src={logo}
+        alt={`${name} 로고`}
+        sizes="72px"
+        className="h-[72px] w-[72px] flex-none rounded-2xl border border-line !bg-surface"
+      />
+      <div className="min-w-0">
+        <h1 className="text-2xl font-bold">{name}</h1>
+        <p className="mt-1 text-[15px] text-muted">{bio}</p>
+      </div>
     </header>
   );
 }
