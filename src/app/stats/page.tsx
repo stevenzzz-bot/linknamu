@@ -16,7 +16,9 @@ export const metadata: Metadata = {
 };
 
 function keyMatches(given: string | undefined): boolean {
-  const expected = process.env.STATS_KEY;
+  // 붙여넣을 때 섞여 들어간 앞뒤 공백·줄바꿈은 무시
+  const expected = process.env.STATS_KEY?.trim();
+  given = given?.trim();
   if (!expected || !given) return false;
   const a = Buffer.from(given);
   const b = Buffer.from(expected);
