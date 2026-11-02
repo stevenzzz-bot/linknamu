@@ -93,13 +93,12 @@ export const profile: Profile = {
       description: "방문 전 연락 주시면 안내드려요",
       url: `https://map.naver.com/p/search/${encodeURIComponent(STORE_ADDRESS)}`,
     },
-    // TODO: 유튜브 조립영상 주소가 정해지면 주석을 풀고 url 을 채운다.
-    // {
-    //   id: "assembly-video",
-    //   title: "조립 영상 보기",
-    //   description: "혼자서 15분이면 끝나요",
-    //   url: "https://www.youtube.com/...",
-    // },
+    {
+      id: "assembly-video",
+      title: "조립 영상 보기",
+      description: "혼자서 15분이면 끝나요",
+      url: "https://www.youtube.com/@mychairkr",
+    },
   ],
   installs: {
     images: [
