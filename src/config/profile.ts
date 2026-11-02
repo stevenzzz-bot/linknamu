@@ -99,7 +99,8 @@ export const profile: Profile = {
       id: "all-products",
       mark: "naver",
       title: "전체 상품 보기",
-      description: "하이백\u00a078,800원 · 미들백\u00a053,000원",
+      // 하이백은 무료배송, 미들백은 상품 47,000원 + 배송비 6,000원 = 53,000원
+      description: "하이백\u00a078,800원 · 미들백\u00a053,000원 (배송비\u00a0포함)",
       url: "https://smartstore.naver.com/kickrider",
     },
     {
