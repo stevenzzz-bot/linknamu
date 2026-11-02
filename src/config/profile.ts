@@ -4,6 +4,7 @@
  * - url: http(s)만 허용 (빌드/요청 시 검증).
  * - SNS icon: src/components/Icon.tsx 에 정의된 이름.
  */
+import type { BrandMarkName } from "@/components/BrandMark";
 import type { IconName } from "@/components/Icon";
 
 export type LinkItem = {
@@ -13,6 +14,8 @@ export type LinkItem = {
   url: string;
   /** true 면 강조 카드(--ink 배경 + 흰 글씨) */
   featured?: boolean;
+  /** 카드 왼쪽 서비스 로고 */
+  mark?: BrandMarkName;
   /** 있으면 설명 앞에 ★★★★★ 표시 (--point 색) */
   showStars?: boolean;
 };
@@ -74,30 +77,35 @@ export const profile: Profile = {
     },
     {
       id: "kakao",
+      mark: "kakao",
       title: "카톡으로 바로 상담",
       description: "높이·사이즈 궁금한 점 물어보기",
       url: "http://pf.kakao.com/_Dggbn",
     },
     {
       id: "bulk-quote",
+      mark: "quote",
       title: "학원·사무실 대량 견적",
       description: "10대부터, 견적서 1영업일 안에",
       url: "https://mychairkr.netlify.app",
     },
     {
       id: "all-products",
+      mark: "naver",
       title: "전체 상품 보기",
       description: "하이백 · 미들백",
       url: "https://smartstore.naver.com/kickrider",
     },
     {
       id: "visit",
+      mark: "naver-map",
       title: "수원에서 직접 앉아보기",
       description: "방문 전 연락 주시면 안내드려요",
       url: `https://map.naver.com/p/search/${encodeURIComponent(STORE_ADDRESS)}`,
     },
     {
       id: "assembly-video",
+      mark: "youtube",
       title: "조립 영상 보기",
       description: "혼자서 15분이면 끝나요",
       url: "https://www.youtube.com/@mychairkr",

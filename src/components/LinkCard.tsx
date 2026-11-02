@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import BrandMark from "@/components/BrandMark";
 import Icon from "@/components/Icon";
 import type { LinkItem } from "@/config/profile";
 
@@ -26,6 +27,7 @@ export default function LinkCard({ link, clicks, showClicks }: Props) {
         featured ? "bg-ink text-white hover:bg-black" : "border border-line bg-surface hover:border-ink",
       ].join(" ")}
     >
+      {link.mark && <BrandMark name={link.mark} />}
       <span className="min-w-0 flex-1">
         <span className="title block text-base font-bold leading-snug">{link.title}</span>
         {link.description && (
