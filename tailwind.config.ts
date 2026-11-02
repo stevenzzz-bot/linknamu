@@ -8,6 +8,7 @@ const config: Config = {
         bg: "var(--bg)",
         surface: "var(--surface)",
         ink: "var(--ink)",
+        heading: "var(--heading)",
         muted: "var(--text-muted)",
         line: "var(--border)",
         point: "var(--point)",

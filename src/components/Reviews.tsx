@@ -1,12 +1,11 @@
+import SectionTitle from "@/components/SectionTitle";
 import type { Profile } from "@/config/profile";
 
 export default function Reviews({ reviews }: { reviews: Profile["reviews"] }) {
   return (
-    <section className="mt-10" aria-labelledby="reviews-title">
-      <h2 id="reviews-title" className="text-lg font-bold">
-        고객 리뷰
-      </h2>
-      <ul className="mt-3 grid gap-2">
+    <section className="mt-14" aria-labelledby="reviews-title">
+      <SectionTitle id="reviews-title">고객 리뷰</SectionTitle>
+      <ul className="mt-4 grid gap-2">
         {reviews.map((r) => (
           <li key={r.text} className="rounded-2xl border border-line bg-surface px-5 py-4">
             <div className="flex items-center justify-between gap-2">

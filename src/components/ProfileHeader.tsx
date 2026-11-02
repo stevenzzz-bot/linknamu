@@ -12,7 +12,7 @@ export default function ProfileHeader({ name, bio, logo }: Props) {
         className="h-[72px] w-[72px] flex-none rounded-2xl border border-line !bg-surface"
       />
       <div className="min-w-0">
-        <h1 className="text-2xl font-bold">{name}</h1>
+        <h1 className="text-[26px] font-extrabold leading-tight text-heading">{name}</h1>
         <p className="mt-1 text-[15px] leading-snug text-muted">{bio}</p>
       </div>
     </header>
