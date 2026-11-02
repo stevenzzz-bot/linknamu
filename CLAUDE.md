@@ -1,7 +1,6 @@
 # 링크나무 (Link in Bio 서비스)
 
 Linktree처럼 내 모든 링크를 한 페이지에 모아두고 하나의 URL로 공유하는 서비스.
-이 디렉터리(`linknamu/`)는 상위 저장소의 웹 크롤러와 무관한 독립 앱이다.
 
 ## 기술 스택
 - Next.js 14 (App Router), Tailwind CSS, MongoDB Atlas (클릭 수 저장), Vercel (배포)

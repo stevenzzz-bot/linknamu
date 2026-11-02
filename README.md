@@ -15,7 +15,7 @@
 ## 시작하기
 
 ```bash
-cd linknamu
+git clone https://github.com/stevenzzz-bot/linknamu && cd linknamu
 npm install
 cp .env.example .env.local   # MONGODB_URI 채우기
 npm run dev                  # http://localhost:3000
@@ -50,7 +50,7 @@ MongoDB `clicks` 컬렉션에 `{ _id: <linkId>, count, updatedAt }` 로 저장�
 
 ## Vercel 배포
 
-1. Vercel에서 이 저장소를 Import, **Root Directory** 를 `linknamu` 로 지정
+1. Vercel에서 이 저장소를 Import (설정은 기본값 그대로)
 2. Environment Variables 에 `MONGODB_URI`, `MONGODB_DB` 추가
 3. MongoDB Atlas → Network Access 에서 Vercel 접속 허용 (`0.0.0.0/0` 또는 Vercel 통합)
 
