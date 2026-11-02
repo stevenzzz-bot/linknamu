@@ -6,10 +6,6 @@ import { MongoClient, type Db } from "mongodb";
  */
 const globalForMongo = globalThis as unknown as { _mongoClientPromise?: Promise<MongoClient> };
 
-export function isMongoConfigured(): boolean {
-  return Boolean(process.env.MONGODB_URI);
-}
-
 export async function getDb(): Promise<Db | null> {
   const uri = process.env.MONGODB_URI;
   if (!uri) return null;

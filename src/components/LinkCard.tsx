@@ -1,16 +1,8 @@
-"use client";
-
-import { useState } from "react";
 import BrandMark from "@/components/BrandMark";
 import Icon from "@/components/Icon";
 import type { LinkItem } from "@/config/profile";
 
-type Props = { link: LinkItem; clicks: number; showClicks: boolean };
-
-const fmt = (n: number) => `${n.toLocaleString("ko-KR")}회`;
-
-export default function LinkCard({ link, clicks, showClicks }: Props) {
-  const [count, setCount] = useState(clicks);
+export default function LinkCard({ link }: { link: LinkItem }) {
   const featured = Boolean(link.featured);
   const sub = featured ? "text-white/80" : "text-muted";
 
@@ -19,8 +11,7 @@ export default function LinkCard({ link, clicks, showClicks }: Props) {
       href={`/go/${encodeURIComponent(link.id)}`}
       target="_blank"
       rel="noopener noreferrer"
-      // 실제 집계는 /go 라우트가 한다. 여기선 화면 숫자만 즉시 갱신.
-      onClick={() => setCount((c) => c + 1)}
+      // 클릭 수는 /go 라우트가 집계한다. 손님 화면에는 표시하지 않음 (/stats 에서 확인).
       className={[
         "group flex min-h-16 items-center gap-3 rounded-2xl px-5 py-3 transition active:scale-[0.99]",
         "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-reduce:transition-none",
@@ -41,11 +32,6 @@ export default function LinkCard({ link, clicks, showClicks }: Props) {
           </span>
         )}
       </span>
-      {showClicks && (
-        <span className={`flex-none text-xs tabular-nums ${sub}`} aria-label={`클릭 ${fmt(count)}`}>
-          {fmt(count)}
-        </span>
-      )}
       <Icon
         name="arrow"
         className={`h-5 w-5 flex-none transition group-hover:translate-x-0.5 motion-reduce:transition-none ${

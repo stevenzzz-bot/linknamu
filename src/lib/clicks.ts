@@ -17,6 +17,16 @@ export async function getClickCounts(): Promise<Record<string, number>> {
   }
 }
 
+export type ClickStat = { id: string; count: number; updatedAt: Date | null };
+
+/** 통계 페이지용: 링크별 클릭 수 + 마지막 클릭 시각. DB 미설정이면 null. */
+export async function getClickStats(): Promise<ClickStat[] | null> {
+  const db = await getDb();
+  if (!db) return null;
+  const docs = await db.collection<ClickDoc>(COLLECTION).find({}).toArray();
+  return docs.map((d) => ({ id: d._id, count: d.count, updatedAt: d.updatedAt ?? null }));
+}
+
 /** 클릭 +1. 실패해도 리다이렉트는 진행되도록 예외를 삼키고 null 반환. */
 export async function incrementClick(linkId: string): Promise<number | null> {
   try {

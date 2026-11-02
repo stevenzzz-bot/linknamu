@@ -12,7 +12,7 @@
 - **링크 카드** — SNS · 블로그 링크를 카드로 나열, 클릭 시 새 탭
 - **납품 현장 · 고객 리뷰** — 사진 2장, 리뷰 카드 2개
 - **하단** — 전화 상담 버튼, 이메일, 사업자 정보
-- **클릭 수 집계** — 링크별 클릭 횟수를 MongoDB에 기록하고 카드에 표시
+- **클릭 수 집계** — 링크별 클릭 횟수를 MongoDB에 기록. 손님 화면에는 숨기고 사장님 전용 `/stats?key=…` 에서만 확인
 - **모바일 우선 반응형**
 
 ## 시작하기
@@ -24,7 +24,7 @@ cp .env.example .env.local   # MONGODB_URI 채우기
 npm run dev                  # http://localhost:3000
 ```
 
-`MONGODB_URI` 가 없어도 페이지는 동작합니다 (클릭 수 표시·집계만 꺼짐).
+`MONGODB_URI` 가 없어도 페이지는 동작합니다 (클릭 집계만 꺼짐).
 
 ## 내 링크로 바꾸기
 
@@ -40,10 +40,10 @@ npm run dev                  # http://localhost:3000
 ```
 src/
 ├── app/
-│   ├── page.tsx            # 프로필 페이지 (매 요청 렌더, 최신 클릭 수)
+│   ├── page.tsx            # 링크 페이지
 │   ├── layout.tsx
 │   ├── go/[id]/route.ts    # 클릭 +1 → 원래 URL로 302
-│   └── api/clicks/route.ts # GET { [id]: count }
+│   └── stats/page.tsx      # 사장님 전용 클릭 통계 (/stats?key=STATS_KEY)
 ├── components/             # Hero, ProfileHeader, Stats, LinkCard, Installs, Reviews …
 ├── config/profile.ts       # 프로필 & 링크 설정
 └── lib/                    # mongodb 연결, clicks, links 검증
@@ -55,7 +55,7 @@ MongoDB `clicks` 컬렉션에 `{ _id: <linkId>, count, updatedAt }` 로 저장�
 ## Vercel 배포
 
 1. Vercel에서 이 저장소를 Import (설정은 기본값 그대로)
-2. Environment Variables 에 `MONGODB_URI`, `MONGODB_DB` 추가
+2. Environment Variables 에 `MONGODB_URI`, `MONGODB_DB`, `STATS_KEY` 추가
 3. MongoDB Atlas → Network Access 에서 Vercel 접속 허용 (`0.0.0.0/0` 또는 Vercel 통합)
 
 ## 스크립트
