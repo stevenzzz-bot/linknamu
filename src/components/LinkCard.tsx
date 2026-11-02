@@ -10,7 +10,7 @@ export default function LinkCard({ link }: { link: LinkItem }) {
     <a
       href={`/go/${encodeURIComponent(link.id)}`}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="nofollow noopener noreferrer"
       // 클릭 수는 /go 라우트가 집계한다. 손님 화면에는 표시하지 않음 (/stats 에서 확인).
       className={[
         "group flex min-h-16 items-center gap-3 rounded-2xl px-5 py-3 transition active:scale-[0.99]",

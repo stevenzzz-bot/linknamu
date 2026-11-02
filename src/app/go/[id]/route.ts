@@ -1,19 +1,23 @@
 import { NextResponse } from "next/server";
 import { findLink } from "@/lib/links";
 import { incrementClick } from "@/lib/clicks";
+import { isBot, normalizeSource } from "@/lib/source";
 
 export const dynamic = "force-dynamic";
 
 /**
  * GET /go/<id> — 클릭 수 +1 후 원래 URL로 302 리다이렉트.
  * 카드가 이 경로를 거치므로 새 탭 · 휠 클릭 · JS 비활성 상태에서도 집계된다.
+ * ?from=<유입경로> 가 붙어 오면 경로별로도 센다. 검색 로봇 등은 세지 않는다.
  */
-export async function GET(_req: Request, { params }: { params: { id: string } }) {
+export async function GET(req: Request, { params }: { params: { id: string } }) {
   const link = findLink(params.id);
   if (!link) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
   }
-  await incrementClick(link.id);
+  if (!isBot(req.headers.get("user-agent"))) {
+    await incrementClick(link.id, normalizeSource(new URL(req.url).searchParams.get("from")));
+  }
   return NextResponse.redirect(link.url, {
     status: 302,
     headers: { "Cache-Control": "no-store" },

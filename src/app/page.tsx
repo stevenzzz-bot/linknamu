@@ -1,10 +1,12 @@
 import Hero from "@/components/Hero";
+import Faq from "@/components/Faq";
 import Installs from "@/components/Installs";
 import LinkCard from "@/components/LinkCard";
 import ProfileHeader from "@/components/ProfileHeader";
 import Reviews from "@/components/Reviews";
 import SiteFooter from "@/components/SiteFooter";
 import SocialLinks from "@/components/SocialLinks";
+import SourceTracker from "@/components/SourceTracker";
 import Stats from "@/components/Stats";
 import { profile } from "@/config/profile";
 import { links, socials } from "@/lib/links";
@@ -25,9 +27,11 @@ export default function Home() {
         </ul>
         <Installs installs={profile.installs} />
         <Reviews reviews={profile.reviews} />
+        <Faq faq={profile.faq} />
         <SocialLinks socials={socials} />
       </main>
       <SiteFooter contact={profile.contact} business={profile.business} />
+      <SourceTracker />
     </>
   );
 }

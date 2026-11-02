@@ -11,7 +11,7 @@ export default function SocialLinks({ socials }: { socials: SocialItem[] }) {
           <a
             href={`/go/${encodeURIComponent(s.id)}`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             aria-label={s.label}
             title={s.label}
             className="grid h-11 w-11 place-items-center rounded-full border border-line bg-surface text-ink transition hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"

@@ -41,6 +41,8 @@ export type Profile = {
   links: LinkItem[];
   installs: { images: Img[]; caption: string };
   reviews: { tag: string; text: string; author: string; source: string }[];
+  /** 자주 묻는 질문 — 비어 있으면 섹션이 숨겨진다 */
+  faq: { q: string; a: string }[];
   socials: SocialItem[];
   contact: {
     phone: string; // tel: 링크용 숫자
@@ -142,6 +144,8 @@ export const profile: Profile = {
       source: "스마트스토어 구매 리뷰",
     },
   ],
+  // TODO: 사장님 답변을 받으면 채운다 (의자 크기·높이 범위 / 배송 기간 / A/S 방법)
+  faq: [],
   socials: [
     { id: "instagram", label: "인스타그램", url: "https://www.instagram.com/mychair.kr", icon: "instagram" },
     { id: "threads", label: "스레드", url: "https://www.threads.net/@mychair.kr", icon: "threads" },

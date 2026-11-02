@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { profile } from "@/config/profile";
 import "./globals.css";
@@ -43,7 +44,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
       </head>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+        {children}
+        {/* Vercel 방문자 분석 — 대시보드에서 Analytics 를 켜야 수집된다 */}
+        <Analytics />
+      </body>
     </html>
   );
 }
