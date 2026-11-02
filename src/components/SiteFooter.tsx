@@ -24,7 +24,7 @@ export default function SiteFooter({ contact, business }: Props) {
         {contact.email}
       </a>
 
-      <address className="mt-8 border-t border-line pt-5 text-center text-xs not-italic leading-relaxed text-muted">
+      <address className="mt-8 border-t border-line pt-5 text-center text-[13px] not-italic leading-relaxed text-muted">
         {business.name} · 대표 {business.owner} · 사업자등록번호 {business.registrationNo}
         <br />
         {business.address}

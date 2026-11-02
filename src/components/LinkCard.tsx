@@ -11,7 +11,7 @@ const fmt = (n: number) => `${n.toLocaleString("ko-KR")}회`;
 export default function LinkCard({ link, clicks, showClicks }: Props) {
   const [count, setCount] = useState(clicks);
   const featured = Boolean(link.featured);
-  const sub = featured ? "text-white/70" : "text-muted";
+  const sub = featured ? "text-white/80" : "text-muted";
 
   return (
     <a
@@ -27,8 +27,17 @@ export default function LinkCard({ link, clicks, showClicks }: Props) {
       ].join(" ")}
     >
       <span className="min-w-0 flex-1">
-        <span className="title block text-base font-bold">{link.title}</span>
-        {link.description && <span className={`mt-0.5 block text-[13px] ${sub}`}>{link.description}</span>}
+        <span className="title block text-base font-bold leading-snug">{link.title}</span>
+        {link.description && (
+          <span className={`mt-1 block text-sm leading-snug ${sub}`}>
+            {link.showStars && (
+              <span className="mr-1.5 tracking-[0.1em] text-point" aria-hidden="true">
+                ★★★★★
+              </span>
+            )}
+            {link.description}
+          </span>
+        )}
       </span>
       {showClicks && (
         <span className={`flex-none text-xs tabular-nums ${sub}`} aria-label={`클릭 ${fmt(count)}`}>

@@ -7,9 +7,9 @@
   --bg: #f5f3f0;
   --surface: #ffffff;
   --ink: #2b2b2b; /* 메인 버튼·제목 */
-  --text-muted: #7a7570;
+  --text-muted: #5f5a55; /* bg 위 대비 6.2:1 */
   --border: #e6e1da;
-  --point: #e08a4e; /* 테라코타, 숫자 강조에만 */
+  --point: #c96a2c; /* 테라코타 — 흰 카드 위 큰 숫자 대비 3:1 이상 */
 }
 
 body {

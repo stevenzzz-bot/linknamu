@@ -18,7 +18,7 @@ export default function Installs({ installs }: { installs: Profile["installs"] }
           />
         ))}
       </div>
-      <p className="mt-2 text-[13px] text-muted">{installs.caption}</p>
+      <p className="mt-2 text-sm text-muted">{installs.caption}</p>
     </section>
   );
 }

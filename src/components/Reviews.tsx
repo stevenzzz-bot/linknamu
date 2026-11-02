@@ -15,8 +15,8 @@ export default function Reviews({ reviews }: { reviews: Profile["reviews"] }) {
                 ★★★★★
               </span>
             </div>
-            <blockquote className="mt-2.5 text-[15px] font-medium leading-relaxed">“{r.text}”</blockquote>
-            <p className="mt-2 text-xs text-muted">
+            <blockquote className="mt-2.5 text-base leading-relaxed">“{r.text}”</blockquote>
+            <p className="mt-2 text-[13px] text-muted">
               {r.author} · {r.source}
             </p>
           </li>

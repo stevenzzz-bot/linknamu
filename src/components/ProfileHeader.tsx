@@ -13,7 +13,7 @@ export default function ProfileHeader({ name, bio, logo }: Props) {
       />
       <div className="min-w-0">
         <h1 className="text-2xl font-bold">{name}</h1>
-        <p className="mt-1 text-[15px] text-muted">{bio}</p>
+        <p className="mt-1 text-[15px] leading-snug text-muted">{bio}</p>
       </div>
     </header>
   );

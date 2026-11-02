@@ -13,6 +13,8 @@ export type LinkItem = {
   url: string;
   /** true 면 강조 카드(--ink 배경 + 흰 글씨) */
   featured?: boolean;
+  /** 있으면 설명 앞에 ★★★★★ 표시 (--point 색) */
+  showStars?: boolean;
 };
 
 /** public/ 기준 경로. 파일이 없으면 회색 자리표시가 나온다. */
@@ -65,7 +67,8 @@ export const profile: Profile = {
     {
       id: "highback",
       title: "하이백 의자 보러 가기",
-      description: "리뷰 52개, 5년 보증",
+      description: "별점 평균 4.9 · 5년 보증",
+      showStars: true,
       url: "https://smartstore.naver.com/kickrider/products/13684736019",
       featured: true,
     },
