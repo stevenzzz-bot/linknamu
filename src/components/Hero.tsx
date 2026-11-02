@@ -3,7 +3,7 @@ import type { Profile } from "@/config/profile";
 
 export default function Hero({ hero }: { hero: Profile["hero"] }) {
   return (
-    <div className="relative">
+    <div className="rise settle relative" style={{ "--i": 0 } as React.CSSProperties}>
       <AssetImage
         src={hero.src}
         alt={hero.alt}

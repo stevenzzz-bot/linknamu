@@ -4,7 +4,7 @@ type Props = { name: string; bio: string; logo: string };
 
 export default function ProfileHeader({ name, bio, logo }: Props) {
   return (
-    <header className="mt-6 flex items-center gap-4">
+    <header className="rise mt-6 flex items-center gap-4" style={{ "--i": 1 } as React.CSSProperties}>
       <AssetImage
         src={logo}
         alt={`${name} 로고`}

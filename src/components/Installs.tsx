@@ -5,8 +5,10 @@ import type { Profile } from "@/config/profile";
 export default function Installs({ installs }: { installs: Profile["installs"] }) {
   return (
     <section className="mt-14" aria-labelledby="installs-title">
-      <SectionTitle id="installs-title">실제 납품 현장</SectionTitle>
-      <div className="mt-4 grid grid-cols-2 gap-2">
+      <div className="reveal">
+        <SectionTitle id="installs-title">실제 납품 현장</SectionTitle>
+      </div>
+      <div className="reveal mt-4 grid grid-cols-2 gap-2">
         {installs.images.map((img) => (
           <AssetImage
             key={img.src}

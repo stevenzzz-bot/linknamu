@@ -25,8 +25,8 @@ export default async function Home() {
         <ProfileHeader name={profile.name} bio={profile.bio} logo={profile.logo} />
         <Stats stats={profile.stats} />
         <ul className="mt-6 grid gap-2.5" aria-label="링크 목록">
-          {links.map((link) => (
-            <li key={link.id}>
+          {links.map((link, i) => (
+            <li key={link.id} className="rise" style={{ "--i": 3 + i } as React.CSSProperties}>
               <LinkCard link={link} clicks={counts[link.id] ?? 0} showClicks={showClicks} />
             </li>
           ))}
