@@ -16,7 +16,7 @@ type Props = {
  */
 export default function AssetImage({ src, alt, className = "", sizes, priority }: Props) {
   return (
-    <div className={`relative overflow-hidden bg-[#e4e0da] ${className}`}>
+    <div className={`relative overflow-hidden bg-placeholder ${className}`}>
       {hasPublicFile(src) ? (
         <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
       ) : (

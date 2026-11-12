@@ -1,5 +1,6 @@
 import BrandMark from "@/components/BrandMark";
 import Icon from "@/components/Icon";
+import Stars from "@/components/Stars";
 import type { LinkItem } from "@/config/profile";
 
 export default function LinkCard({ link }: { link: LinkItem }) {
@@ -24,9 +25,7 @@ export default function LinkCard({ link }: { link: LinkItem }) {
         {link.description && (
           <span className={`mt-1 block text-sm leading-snug ${sub}`}>
             {link.showStars && (
-              <span className="mr-1.5 tracking-[0.1em] text-point" aria-hidden="true">
-                ★★★★★
-              </span>
+              <Stars className="mr-1.5 text-[0.95em] text-point" />
             )}
             {link.description}
           </span>

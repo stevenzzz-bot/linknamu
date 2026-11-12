@@ -18,7 +18,7 @@ export default function SiteFooter({ contact, business }: Props) {
 
       <a
         href={`mailto:${contact.email}`}
-        className="mx-auto mt-4 flex w-fit items-center gap-1.5 text-sm text-muted underline-offset-4 hover:text-ink hover:underline"
+        className="mx-auto mt-2 flex min-h-11 w-fit items-center gap-1.5 px-2 text-sm text-muted underline-offset-4 hover:text-ink hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
       >
         <Icon name="mail" className="h-4 w-4" />
         {contact.email}

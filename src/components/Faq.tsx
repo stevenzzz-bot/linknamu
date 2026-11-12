@@ -14,9 +14,17 @@ export default function Faq({ faq }: { faq: Profile["faq"] }) {
           <details key={item.q} className="reveal group rounded-2xl border border-line bg-surface px-5 py-4">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-bold [&::-webkit-details-marker]:hidden">
               <span className="title">{item.q}</span>
-              <span aria-hidden="true" className="flex-none text-muted transition group-open:rotate-45">
-                +
-              </span>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-5 w-5 flex-none text-muted transition group-open:rotate-45 motion-reduce:transition-none"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.75}
+                strokeLinecap="round"
+              >
+                <path d="M12 5v14M5 12h14" />
+              </svg>
             </summary>
             <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-ink">{item.a}</p>
           </details>

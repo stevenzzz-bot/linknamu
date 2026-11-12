@@ -11,6 +11,12 @@
   --text-muted: #5f5a55; /* bg 위 대비 6.2:1 */
   --border: #e6e1da;
   --point: #c96a2c; /* 테라코타 — 흰 카드 위 큰 숫자 대비 3:1 이상 */
+  --placeholder: #e4e0da; /* 이미지 없을 때 자리표시 */
+
+  /* 브라우저 기본 요소도 브랜드 색으로 */
+  accent-color: var(--point);
+  caret-color: var(--point);
+  scrollbar-color: #c9c2b8 var(--bg);
 }
 
 body {
@@ -20,6 +26,11 @@ body {
     "Noto Sans KR", "Malgun Gothic", sans-serif;
   word-break: keep-all;
   overflow-wrap: break-word;
+}
+
+::selection {
+  background: rgba(201, 106, 44, 0.22);
+  color: var(--heading);
 }
 
 h1,

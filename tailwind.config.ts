@@ -12,6 +12,7 @@ const config: Config = {
         muted: "var(--text-muted)",
         line: "var(--border)",
         point: "var(--point)",
+        placeholder: "var(--placeholder)",
       },
     },
   },
