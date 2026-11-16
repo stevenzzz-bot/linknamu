@@ -29,8 +29,8 @@ export default function Home() {
           </div>
         )}
         <ActionList kakao={kakao} rows={rows} video={profile.video} videoLink={videoLink} />
+        <Reviews reviews={profile.reviews} photos={profile.photoReviews} tags={profile.reviewTags} />
         <Features features={profile.features} />
-        <Reviews reviews={profile.reviews} tags={profile.reviewTags} />
         <Installs installs={profile.installs} />
         <Faq faq={profile.faq} />
         <SocialLinks socials={socials} />

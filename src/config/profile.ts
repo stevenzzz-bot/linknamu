@@ -66,6 +66,8 @@ export type Profile = {
   video?: { src: string; poster: string; label: string };
   /** "앉아보면 다른 점" — 구매자 리뷰에 실제로 나온 특징만 적는다 */
   features: { icon: "headrest" | "lumbar" | "armrest" | "seat"; title: string; desc: string }[];
+  /** 구매자 사진 리뷰 — 스마트스토어 포토리뷰의 사진과 문장(원문 그대로, 일부 발췌) */
+  photoReviews: { src: string; text: string; meta: string }[];
   /** 스마트스토어 리뷰 키워드 (스토어 리뷰 화면의 태그 그대로) */
   reviewTags: string[];
   /** 자주 묻는 질문 — 비어 있으면 섹션이 숨겨진다 */
@@ -179,12 +181,6 @@ export const profile: Profile = {
   },
   reviews: [
     {
-      tag: "편안함",
-      text: "헤드레스트도 조절이 되서 머리와 목을 잘 받쳐주어서 편하구요, 허리도 곡선으로 밀착됩니다. 팔 높이도 조절돼서 자세에 따라 조절해서 앉으니 편합니다.",
-      author: "bban님",
-      source: "스마트스토어 구매 리뷰",
-    },
-    {
       tag: "5년 A/S",
       text: "원룸 자취방 옵션 의자가 불편해서 새로 사려고 이것저것 찾아보다가 스레드에서 사장님 글 보고 가격도 괜찮고 기능들도 괜찮으니 믿어보자~ 하며 샀는데 마음에 듭니다 5년까지 AS 되는 것도 좋고 엉덩이 부분이 넓직해서 더 편안한것 같아요",
       author: "170cm 구매자님",
@@ -209,6 +205,33 @@ export const profile: Profile = {
     { icon: "lumbar", title: "허리 곡선 등판", desc: "허리에 곡선으로 밀착돼요" },
     { icon: "armrest", title: "팔걸이 높이 조절", desc: "자세에 맞춰 바꿔 앉아요" },
     { icon: "seat", title: "넓직한 좌판", desc: "엉덩이가 편안해요" },
+  ],
+  photoReviews: [
+    {
+      src: "/reviews/r1.jpg",
+      text: "서재용으로 샀는데 너무 편하다더니 딸아이한테 뺏겼어요.. 헤드레스트랑 등받이 메쉬 감싸주는 게 대박입니다.",
+      meta: "164cm · 스마트스토어 구매",
+    },
+    {
+      src: "/reviews/r2.jpg",
+      text: "만원더주고 그레이색상을 했는데, 흰색 책상과 잘 어울립니다. 헤드 레스트도 조절이되서 머리와 목을 잘 받쳐주어서 편하구요",
+      meta: "bban님 · 클라우드 그레이",
+    },
+    {
+      src: "/reviews/r3.jpg",
+      text: "평소에 오래 앉아서 작업할 일이 많아 허리가 왕왕 뻐근했는데, 이 의자로 바꾸고 나서 피로도가 아예 없네요?!!",
+      meta: "160cm · 스마트스토어 구매",
+    },
+    {
+      src: "/reviews/r4.jpg",
+      text: "쿠션감은 너무 푹신하지 않고 오래 앉아있을 때 엉덩이 안아픈 정도로 딱 좋아요.",
+      meta: "170cm · 스마트스토어 구매",
+    },
+    {
+      src: "/reviews/r5.jpg",
+      text: "의자가 생각보다 무거운데 그만큼 단단하니 좋네요! 조립법도 상세히 설명해주셔서 잘 따라서 할 수 있었네요",
+      meta: "스마트스토어 구매",
+    },
   ],
   reviewTags: ["편해요", "허리가 편해요", "쿠션감이 좋아요", "튼튼해요", "마감이 좋아요", "몸을 잘 받쳐줘요"],
   // TODO: 사장님 답변을 받으면 채운다 (의자 크기·높이 범위 / 배송 기간 / A/S 방법)
