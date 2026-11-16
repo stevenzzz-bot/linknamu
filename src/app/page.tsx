@@ -31,7 +31,7 @@ export default function Home() {
         )}
         <ActionList kakao={kakao} rows={rows} video={profile.video} videoLink={videoLink} />
         <Reviews reviews={profile.reviews} photos={profile.photoReviews} tags={profile.reviewTags} />
-        <Colors colors={profile.colors} href={offer ? `/go/${offer.id}` : "#"} />
+        <Colors products={profile.products} />
         <Features features={profile.features} />
         <Installs installs={profile.installs} />
         <Faq faq={profile.faq} />
