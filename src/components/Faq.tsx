@@ -6,9 +6,7 @@ export default function Faq({ faq }: { faq: Profile["faq"] }) {
   if (faq.length === 0) return null;
   return (
     <section className="mt-14" aria-labelledby="faq-title">
-      <div className="reveal">
-        <SectionTitle id="faq-title">자주 묻는 질문</SectionTitle>
-      </div>
+      <SectionTitle id="faq-title">자주 묻는 질문</SectionTitle>
       <div className="mt-4 grid gap-2">
         {faq.map((item) => (
           <details key={item.q} className="reveal group rounded-2xl border border-line bg-surface px-5 py-4">

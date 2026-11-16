@@ -4,27 +4,22 @@ type Props = { name: string; bio: string; logo: string; stats?: { value: string;
 
 export default function ProfileHeader({ name, bio, logo, stats = [] }: Props) {
   return (
-    <header className="rise mt-6 flex items-center gap-4" style={{ "--i": 1 } as React.CSSProperties}>
-      <AssetImage
-        src={logo}
-        alt={`${name} 로고`}
-        sizes="72px"
-        className="h-[72px] w-[72px] flex-none rounded-2xl border border-line !bg-surface"
-      />
-      <div className="min-w-0">
-        <h1 className="text-[26px] font-extrabold leading-tight text-heading">{name}</h1>
-        <p className="mt-1 text-[15px] leading-snug text-muted">{bio}</p>
-        {stats.length > 0 && (
-          <p className="mt-1.5 text-sm text-muted">
-            {stats.map((s, i) => (
-              <span key={s.value} className="whitespace-nowrap">
-                {i > 0 && <span aria-hidden="true"> · </span>}
-                <strong className="font-bold text-ink">{s.value}</strong> {s.label}
-              </span>
-            ))}
-          </p>
-        )}
+    <header className="rise mt-7" style={{ "--i": 1 } as React.CSSProperties}>
+      <div className="flex items-center gap-3">
+        <AssetImage src={logo} alt={`${name} 로고`} sizes="44px" className="h-11 w-11 flex-none rounded-xl !bg-surface" />
+        <h1 className="text-[28px] font-extrabold leading-none text-heading">{name}</h1>
       </div>
+      <p className="mt-4 text-[17px] font-semibold leading-snug text-ink">{bio}</p>
+      {stats.length > 0 && (
+        <p className="mt-1 text-[15px] text-muted">
+          {stats.map((s, i) => (
+            <span key={s.value} className="whitespace-nowrap">
+              {i > 0 && <span aria-hidden="true"> · </span>}
+              {s.value} {s.label}
+            </span>
+          ))}
+        </p>
+      )}
     </header>
   );
 }
