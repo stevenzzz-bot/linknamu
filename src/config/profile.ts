@@ -18,6 +18,10 @@ export type LinkItem = {
   mark?: BrandMarkName;
   /** 설명 안에서 포인트색으로 강조할 부분 (가격) */
   highlight?: string;
+  /** "card" = 큰 카드(기본), "grid" = 아래 3열 아이콘 버튼, "hidden" = 화면에는 없고 다른 곳에서 /go 로만 사용 */
+  placement?: "card" | "grid" | "hidden";
+  /** 3열 버튼에 쓰는 짧은 이름 */
+  short?: string;
   /** 있으면 설명 앞에 ★★★★★ 표시 (--point 색) */
   showStars?: boolean;
 };
@@ -69,10 +73,10 @@ export const profile: Profile = {
   name: "나의자랑",
   bio: "오래 앉는 사람을 위한 메쉬 의자",
   logo: "/logo.png",
-  hero: { src: "/hero.jpg", alt: "책상 앞에 놓인 하이백 메쉬 의자", label: "NAJ-H01 하이백" },
+  hero: { src: "/hero-wide.jpg", alt: "독서실 통로에 마주 놓인 하이백 메쉬 의자 두 개", label: "NAJ-H01 하이백" },
+  // 프로필 아래 한 줄 요약 ("100대 납품"은 아래 납품 현장 영역에서 보여준다)
   stats: [
     { value: "5년", label: "무상 보증" },
-    { value: "100대", label: "학원 단일 납품" },
     { value: "125°", label: "자유 틸팅" },
   ],
   links: [
@@ -96,6 +100,8 @@ export const profile: Profile = {
     {
       id: "bulk-quote",
       mark: "quote",
+      placement: "grid",
+      short: "대량 견적",
       title: "학원·사무실 대량 견적",
       description: "10대부터, 견적서 1영업일 안에",
       url: "https://mychairkr.netlify.app",
@@ -111,6 +117,8 @@ export const profile: Profile = {
     {
       id: "visit",
       mark: "naver-map",
+      placement: "grid",
+      short: "매장 방문",
       title: "수원에서 직접 앉아보기",
       description: "방문 전 연락 주시면 안내드려요",
       url: `https://map.naver.com/p/search/${encodeURIComponent(STORE_ADDRESS)}`,
@@ -118,6 +126,8 @@ export const profile: Profile = {
     {
       id: "assembly-video",
       mark: "youtube",
+      // 3열의 "영상 보기"를 펼치면 나오는 링크로만 쓴다
+      placement: "hidden",
       title: "조립 영상 보기",
       description: "혼자서 15분이면 끝나요",
       url: "https://www.youtube.com/@mychairkr",
