@@ -9,7 +9,7 @@ export default function Hero({ hero }: { hero: Profile["hero"] }) {
         alt={hero.alt}
         sizes="(max-width: 480px) 100vw, 448px"
         priority
-        className="aspect-video rounded-2xl"
+        className="aspect-video rounded-xl"
       />
     </div>
   );

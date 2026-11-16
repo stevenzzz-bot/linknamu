@@ -26,12 +26,14 @@ export default function Reviews({ reviews, photos = [], tags = [] }: Props) {
           aria-label="구매자 사진 리뷰 (옆으로 넘겨보세요)"
         >
           {photos.map((p) => (
-            <li key={p.src} className="w-[236px] flex-none snap-start">
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-placeholder">
-                <Image src={p.src} alt="구매자가 찍은 의자 사진" fill sizes="236px" className="object-cover" />
+            <li key={p.src} className="flex w-[300px] flex-none snap-start gap-3">
+              <div className="relative aspect-square w-[104px] flex-none overflow-hidden rounded-xl bg-placeholder">
+                <Image src={p.src} alt="구매자가 찍은 의자 사진" fill sizes="104px" className="object-cover" />
               </div>
-              <p className="mt-3 line-clamp-4 text-[15px] leading-relaxed text-heading">{p.text}</p>
-              <p className="mt-1.5 text-[13px] text-muted">{p.meta}</p>
+              <div className="min-w-0">
+                <p className="line-clamp-4 text-[15px] leading-relaxed text-heading">{p.text}</p>
+                <p className="mt-1.5 text-[13px] text-muted">{p.meta}</p>
+              </div>
             </li>
           ))}
         </ul>
