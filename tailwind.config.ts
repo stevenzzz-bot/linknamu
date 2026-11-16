@@ -13,6 +13,8 @@ const config: Config = {
         line: "var(--border)",
         point: "var(--point)",
         placeholder: "var(--placeholder)",
+        rule: "var(--rule)",
+        "point-on-dark": "var(--point-on-dark)",
       },
     },
   },

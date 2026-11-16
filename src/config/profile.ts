@@ -16,6 +16,8 @@ export type LinkItem = {
   featured?: boolean;
   /** 카드 왼쪽 서비스 로고 */
   mark?: BrandMarkName;
+  /** 설명 안에서 포인트색으로 강조할 부분 (가격) */
+  highlight?: string;
   /** 있으면 설명 앞에 ★★★★★ 표시 (--point 색) */
   showStars?: boolean;
 };
@@ -79,6 +81,7 @@ export const profile: Profile = {
       title: "하이백 의자 보러 가기",
       // 가격은 스마트스토어 즉시할인가 기준(포인트 적립 제외). 스토어 가격이 바뀌면 같이 고친다.
       description: "별점 4.9 · 78,800원 무료배송",
+      highlight: "78,800원",
       showStars: true,
       url: "https://smartstore.naver.com/kickrider/products/13684736019",
       featured: true,
@@ -101,8 +104,8 @@ export const profile: Profile = {
       id: "all-products",
       mark: "naver",
       title: "전체 상품 보기",
-      // 하이백은 무료배송, 미들백은 상품 47,000원 + 배송비 6,000원 = 53,000원
-      description: "하이백\u00a078,800원 · 미들백\u00a053,000원 (배송비\u00a0포함)",
+      // 하이백 가격은 첫 카드에만. 미들백은 상품 47,000원 + 배송비 6,000원 = 53,000원
+      description: "하이백 · 미들백\u00a053,000원 (배송비\u00a0포함)",
       url: "https://smartstore.naver.com/kickrider",
     },
     {

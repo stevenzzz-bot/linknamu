@@ -1,13 +1,15 @@
 /**
- * 링크 카드 왼쪽의 서비스 로고 (40px 정사각, 모서리 10px).
- * 공식 색을 쓴 단순화한 마크 — 이미지 파일 없이 인라인 SVG.
+ * 링크 카드 왼쪽의 서비스 마크 (40px 정사각, 모서리 10px).
+ * 페이지 톤(베이지·잉크)을 지키기 위해 잉크 단색 라인 아이콘으로 통일하고,
+ * 가장 중요한 상담 채널인 카카오톡만 공식 노란색을 남긴다.
  */
 export type BrandMarkName = "kakao" | "naver" | "naver-map" | "youtube" | "quote";
 
-const MARKS: Record<BrandMarkName, { label: string; bg: string; svg: React.ReactNode }> = {
+const LINE = { fill: "none", stroke: "currentColor", strokeWidth: 1.75, strokeLinecap: "round", strokeLinejoin: "round" } as const;
+
+const MARKS: Record<BrandMarkName, { color?: string; svg: React.ReactNode }> = {
   kakao: {
-    label: "카카오톡",
-    bg: "#FEE500",
+    color: "#FEE500",
     svg: (
       <path
         transform="translate(12 12) scale(1.3) translate(-12 -12)"
@@ -16,31 +18,37 @@ const MARKS: Record<BrandMarkName, { label: string; bg: string; svg: React.React
       />
     ),
   },
+  // 스마트스토어: 쇼핑백
   naver: {
-    label: "네이버 스마트스토어",
-    bg: "#03C75A",
-    svg: <path fill="#fff" d="M7 6.5h3.4l3.4 5V6.5H17v11h-3.4l-3.4-5v5H7z" />,
-  },
-  "naver-map": {
-    label: "네이버 지도",
-    bg: "#03C75A",
     svg: (
-      <>
-        <path fill="#fff" d="M12 4.5a5.5 5.5 0 0 0-5.5 5.5c0 4 5.5 9.5 5.5 9.5s5.5-5.5 5.5-9.5A5.5 5.5 0 0 0 12 4.5z" />
-        <circle cx="12" cy="10" r="2" fill="#03C75A" />
-      </>
+      <g {...LINE}>
+        <path d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4z" />
+        <path d="M9 10V7a3 3 0 0 1 6 0v3" />
+      </g>
     ),
   },
-  youtube: {
-    label: "유튜브",
-    bg: "#FF0000",
-    svg: <path fill="#fff" d="M9 7.2v9.6l8.2-4.8z" />,
-  },
-  quote: {
-    label: "견적",
-    bg: "var(--bg)",
+  // 지도: 위치 핀
+  "naver-map": {
     svg: (
-      <g fill="none" stroke="var(--ink)" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
+      <g {...LINE}>
+        <path d="M12 21s-6.5-5.8-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.2 12 21 12 21z" />
+        <circle cx="12" cy="10.5" r="2.3" />
+      </g>
+    ),
+  },
+  // 영상: 재생 버튼
+  youtube: {
+    svg: (
+      <g {...LINE}>
+        <rect x="3" y="5.5" width="18" height="13" rx="3.5" />
+        <path d="M10.3 9.4v5.2l4.4-2.6z" />
+      </g>
+    ),
+  },
+  // 견적서: 문서
+  quote: {
+    svg: (
+      <g {...LINE}>
         <path d="M14 4H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8z" />
         <path d="M14 4v4h4M9.5 13h5M9.5 16.5h3" />
       </g>
@@ -52,8 +60,10 @@ export default function BrandMark({ name }: { name: BrandMarkName }) {
   const m = MARKS[name];
   return (
     <span
-      className="grid h-10 w-10 flex-none place-items-center rounded-[10px] border border-black/5"
-      style={{ background: m.bg }}
+      className={`grid h-10 w-10 flex-none place-items-center rounded-[10px] border ${
+        m.color ? "border-black/5" : "border-line bg-bg text-ink"
+      }`}
+      style={m.color ? { background: m.color } : undefined}
       aria-hidden="true"
     >
       <svg viewBox="0 0 24 24" className="h-6 w-6" focusable="false">

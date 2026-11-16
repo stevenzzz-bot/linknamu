@@ -12,11 +12,13 @@
   --border: #e6e1da;
   --point: #c96a2c; /* 테라코타 — 흰 카드 위 큰 숫자 대비 3:1 이상 */
   --placeholder: #e4e0da; /* 이미지 없을 때 자리표시 */
+  --rule: #c9c2b8; /* 섹션 제목 위 짧은 선 */
+  --point-on-dark: #e8955a; /* 어두운 카드 위 가격 강조 (대비 6:1) */
 
   /* 브라우저 기본 요소도 브랜드 색으로 */
   accent-color: var(--point);
   caret-color: var(--point);
-  scrollbar-color: #c9c2b8 var(--bg);
+  scrollbar-color: var(--rule) var(--bg);
 }
 
 body {

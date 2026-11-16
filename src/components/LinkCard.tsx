@@ -27,7 +27,15 @@ export default function LinkCard({ link }: { link: LinkItem }) {
             {link.showStars && (
               <Stars className="mr-1.5 text-[0.95em] text-point" />
             )}
-            {link.description}
+            {link.highlight && featured && link.description.includes(link.highlight) ? (
+              <>
+                {link.description.split(link.highlight)[0]}
+                <strong className="font-bold text-point-on-dark">{link.highlight}</strong>
+                {link.description.split(link.highlight).slice(1).join(link.highlight)}
+              </>
+            ) : (
+              link.description
+            )}
           </span>
         )}
       </span>
