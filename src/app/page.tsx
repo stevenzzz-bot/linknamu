@@ -1,4 +1,5 @@
 import ActionList from "@/components/ActionList";
+import Colors from "@/components/Colors";
 import Faq from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
@@ -30,6 +31,7 @@ export default function Home() {
         )}
         <ActionList kakao={kakao} rows={rows} video={profile.video} videoLink={videoLink} />
         <Reviews reviews={profile.reviews} photos={profile.photoReviews} tags={profile.reviewTags} />
+        <Colors colors={profile.colors} href={offer ? `/go/${offer.id}` : "#"} />
         <Features features={profile.features} />
         <Installs installs={profile.installs} />
         <Faq faq={profile.faq} />

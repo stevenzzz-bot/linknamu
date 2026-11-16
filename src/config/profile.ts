@@ -68,6 +68,8 @@ export type Profile = {
   features: { icon: "headrest" | "lumbar" | "armrest" | "seat"; title: string; desc: string }[];
   /** 구매자 사진 리뷰 — 스마트스토어 포토리뷰의 사진과 문장(원문 그대로, 일부 발췌) */
   photoReviews: { src: string; text: string; meta: string }[];
+  /** 하이백 색상 (스토어 옵션: 클라우드 그레이 +10,000원) */
+  colors: { name: string; swatch: string; price: string; mood: string; src: string }[];
   /** 스마트스토어 리뷰 키워드 (스토어 리뷰 화면의 태그 그대로) */
   reviewTags: string[];
   /** 자주 묻는 질문 — 비어 있으면 섹션이 숨겨진다 */
@@ -232,6 +234,10 @@ export const profile: Profile = {
       text: "의자가 생각보다 무거운데 그만큼 단단하니 좋네요! 조립법도 상세히 설명해주셔서 잘 따라서 할 수 있었네요",
       meta: "스마트스토어 구매",
     },
+  ],
+  colors: [
+    { name: "잉크 블랙", swatch: "#1f1f1f", price: "78,800원", mood: "단단하고 차분한 느낌", src: "/colors/black.jpg" },
+    { name: "클라우드 그레이", swatch: "#c9ccce", price: "88,800원", mood: "흰 책상과 잘 어울려요", src: "/colors/gray.jpg" },
   ],
   reviewTags: ["편해요", "허리가 편해요", "쿠션감이 좋아요", "튼튼해요", "마감이 좋아요", "몸을 잘 받쳐줘요"],
   // TODO: 사장님 답변을 받으면 채운다 (의자 크기·높이 범위 / 배송 기간 / A/S 방법)
