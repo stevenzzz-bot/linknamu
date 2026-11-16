@@ -16,6 +16,8 @@ export type LinkItem = {
   featured?: boolean;
   /** 카드 왼쪽 서비스 로고 */
   mark?: BrandMarkName;
+  /** 대표 상품 카드(할인가·혜택·구매 버튼). 있으면 featured 카드가 이 모양으로 그려진다 */
+  offer?: { name: string; was: string; discount: string; now: string; perks: string[]; cta: string };
   /** 설명 안에서 포인트색으로 강조할 부분 (가격) */
   highlight?: string;
   /** "card" = 큰 카드(기본), "grid" = 아래 3열 아이콘 버튼, "hidden" = 화면에는 없고 다른 곳에서 /go 로만 사용 */
@@ -49,6 +51,10 @@ export type Profile = {
   reviews: { tag: string; text: string; author: string; source: string }[];
   /** 세로 홍보 영상 (public/ 기준). 없으면 섹션이 숨겨진다 */
   video?: { src: string; poster: string; label: string };
+  /** "앉아보면 다른 점" — 구매자 리뷰에 실제로 나온 특징만 적는다 */
+  features: { icon: "headrest" | "lumbar" | "armrest" | "seat"; title: string; desc: string }[];
+  /** 스마트스토어 리뷰 키워드 (스토어 리뷰 화면의 태그 그대로) */
+  reviewTags: string[];
   /** 자주 묻는 질문 — 비어 있으면 섹션이 숨겨진다 */
   faq: { q: string; a: string }[];
   socials: SocialItem[];
@@ -86,6 +92,15 @@ export const profile: Profile = {
       // 가격은 스마트스토어 즉시할인가 기준(포인트 적립 제외). 스토어 가격이 바뀌면 같이 고친다.
       description: "별점 4.9 · 78,800원 무료배송",
       highlight: "78,800원",
+      // 스마트스토어 상품 화면 기준: 정가 143,000원, 즉시할인 45% → 78,800원, 배송비 무료
+      offer: {
+        name: "NAJ-H01 하이백 메쉬 의자",
+        was: "143,000원",
+        discount: "45%",
+        now: "78,800원",
+        perks: ["무료배송", "5년 무상 A/S", "수원 매장 시착"],
+        cta: "스마트스토어에서 구매하기",
+      },
       showStars: true,
       url: "https://smartstore.naver.com/kickrider/products/13684736019",
       featured: true,
@@ -172,6 +187,13 @@ export const profile: Profile = {
       source: "스마트스토어 구매 리뷰",
     },
   ],
+  features: [
+    { icon: "headrest", title: "헤드레스트 조절", desc: "머리와 목을 받쳐줘요" },
+    { icon: "lumbar", title: "허리 곡선 등판", desc: "허리에 곡선으로 밀착돼요" },
+    { icon: "armrest", title: "팔걸이 높이 조절", desc: "자세에 맞춰 바꿔 앉아요" },
+    { icon: "seat", title: "넓직한 좌판", desc: "엉덩이가 편안해요" },
+  ],
+  reviewTags: ["편해요", "허리가 편해요", "쿠션감이 좋아요", "튼튼해요", "마감이 좋아요", "몸을 잘 받쳐줘요"],
   // TODO: 사장님 답변을 받으면 채운다 (의자 크기·높이 범위 / 배송 기간 / A/S 방법)
   faq: [],
   socials: [

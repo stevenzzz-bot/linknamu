@@ -1,9 +1,11 @@
 import BrandMark from "@/components/BrandMark";
 import Icon from "@/components/Icon";
+import OfferCard from "@/components/OfferCard";
 import Stars from "@/components/Stars";
 import type { LinkItem } from "@/config/profile";
 
 export default function LinkCard({ link }: { link: LinkItem }) {
+  if (link.featured && link.offer) return <OfferCard link={{ ...link, offer: link.offer }} />;
   const featured = Boolean(link.featured);
   const sub = featured ? "text-white/80" : "text-muted";
 

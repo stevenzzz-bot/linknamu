@@ -26,6 +26,30 @@ const ICONS = {
     </>
   ),
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
+  headrest: (
+    <>
+      <rect x="6.5" y="2.5" width="11" height="5" rx="2.5" />
+      <path d="M12 7.5v3M7.5 10.5h9a1.5 1.5 0 0 1 1.5 1.5v8.5H6V12a1.5 1.5 0 0 1 1.5-1.5z" />
+    </>
+  ),
+  lumbar: (
+    <>
+      <path d="M9 2.5c4 3.5 4 7.5 0 9.5s-4 6.5 0 9.5" />
+      <path d="M16.5 9l-3 3 3 3" />
+    </>
+  ),
+  armrest: (
+    <>
+      <rect x="2.5" y="11" width="11" height="3.5" rx="1.75" />
+      <path d="M8 14.5v6M18.5 5v14M16 7.5 18.5 5 21 7.5M16 16.5l2.5 2.5 2.5-2.5" />
+    </>
+  ),
+  seat: (
+    <>
+      <rect x="4" y="8" width="16" height="9" rx="4.5" />
+      <path d="M2 12.5h2M20 12.5h2M9 17v3.5M15 17v3.5" />
+    </>
+  ),
 } as const;
 
 export type IconName = keyof typeof ICONS;

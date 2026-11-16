@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Faq from "@/components/Faq";
+import Features from "@/components/Features";
 import Installs from "@/components/Installs";
 import LinkCard from "@/components/LinkCard";
 import LinkGrid from "@/components/LinkGrid";
@@ -27,8 +28,9 @@ export default function Home() {
           ))}
         </ul>
         <LinkGrid links={grid} video={profile.video} videoLink={links.find((l) => l.id === "assembly-video")} />
+        <Features features={profile.features} />
+        <Reviews reviews={profile.reviews} tags={profile.reviewTags} />
         <Installs installs={profile.installs} />
-        <Reviews reviews={profile.reviews} />
         <Faq faq={profile.faq} />
         <SocialLinks socials={socials} />
       </main>
