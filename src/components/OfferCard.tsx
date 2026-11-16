@@ -27,7 +27,14 @@ export default function OfferCard({ link }: { link: LinkItem & { offer: NonNulla
       <span className="mt-1.5 flex items-baseline gap-2">
         <s className="text-[15px] text-white/50">{o.was}</s>
         <span className="text-[30px] font-extrabold leading-none tracking-[-0.03em] text-point-on-dark">{o.now}</span>
+        {o.shipping && <span className="text-[15px] font-bold text-white">{o.shipping}</span>}
       </span>
+
+      {o.effective && (
+        <span className="mt-1.5 block text-[13px] text-white/70">
+          리뷰 적립 시 체감가 <strong className="font-bold text-white">{o.effective}</strong>
+        </span>
+      )}
 
       <span className="mt-3 flex flex-wrap gap-1.5">
         {o.perks.map((p) => (

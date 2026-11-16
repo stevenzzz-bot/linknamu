@@ -17,7 +17,18 @@ export type LinkItem = {
   /** 카드 왼쪽 서비스 로고 */
   mark?: BrandMarkName;
   /** 대표 상품 카드(할인가·혜택·구매 버튼). 있으면 featured 카드가 이 모양으로 그려진다 */
-  offer?: { name: string; was: string; discount: string; now: string; perks: string[]; cta: string };
+  offer?: {
+    name: string;
+    was: string;
+    discount: string;
+    now: string;
+    /** 가격 바로 옆에 붙는 배송 문구 (예: 무료배송) */
+    shipping?: string;
+    /** 리뷰·구매 적립을 뺀 체감가 (조건부라 작게 표시) */
+    effective?: string;
+    perks: string[];
+    cta: string;
+  };
   /** 설명 안에서 포인트색으로 강조할 부분 (가격) */
   highlight?: string;
   /** "card" = 큰 카드(기본), "grid" = 아래 3열 아이콘 버튼, "hidden" = 화면에는 없고 다른 곳에서 /go 로만 사용 */
@@ -92,13 +103,16 @@ export const profile: Profile = {
       // 가격은 스마트스토어 즉시할인가 기준(포인트 적립 제외). 스토어 가격이 바뀌면 같이 고친다.
       description: "별점 4.9 · 78,800원 무료배송",
       highlight: "78,800원",
-      // 스마트스토어 상품 화면 기준: 정가 143,000원, 즉시할인 45% → 78,800원, 배송비 무료
+      // 스마트스토어 상품 화면 기준: 정상가 155,000원, 즉시할인 49%(-76,200원) → 판매가 78,800원, 배송비 무료
+      // 리뷰·구매 적립 최대 5,788원 → 체감가 73,012원 (리뷰 작성 조건 충족 시)
       offer: {
         name: "NAJ-H01 하이백 메쉬 의자",
-        was: "143,000원",
-        discount: "45%",
+        was: "155,000원",
+        discount: "49%",
         now: "78,800원",
-        perks: ["무료배송", "5년 무상 A/S", "수원 매장 시착"],
+        shipping: "무료배송",
+        effective: "73,012원",
+        perks: ["5년 무상 A/S", "수원 매장 시착"],
         cta: "스마트스토어에서 구매하기",
       },
       showStars: true,
