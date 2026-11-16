@@ -1,3 +1,4 @@
+import ShipTimer from "@/components/ShipTimer";
 import type { LinkItem } from "@/config/profile";
 
 type Offer = NonNullable<LinkItem["offer"]>;
@@ -36,6 +37,8 @@ export default function OfferCard({ link }: { link: LinkItem & { offer: Offer } 
           </>
         )}
       </span>
+
+      {o.arrival && <ShipTimer arrival={o.arrival} />}
 
       <span className="mt-5 flex min-h-[52px] items-center justify-center rounded-xl bg-white text-base font-bold text-ink">
         {o.cta}

@@ -24,6 +24,8 @@ export type LinkItem = {
     now: string;
     /** 가격 바로 옆에 붙는 배송 문구 (예: 무료배송) */
     shipping?: string;
+    /** 당일 출고 타이머 아래 도착 통계 문구 (사장님 제공 통계) */
+    arrival?: string;
     /** 리뷰·구매 적립을 뺀 체감가 (조건부라 작게 표시) */
     effective?: string;
     perks: string[];
@@ -112,6 +114,7 @@ export const profile: Profile = {
         now: "78,800원",
         shipping: "무료배송",
         effective: "73,012원",
+        arrival: "다음 날 도착 98%",
         perks: ["5년 무상 A/S", "수원 매장 시착"],
         cta: "스마트스토어에서 구매하기",
       },
