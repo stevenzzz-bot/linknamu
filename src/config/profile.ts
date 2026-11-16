@@ -41,6 +41,8 @@ export type Profile = {
   links: LinkItem[];
   installs: { images: Img[]; caption: string };
   reviews: { tag: string; text: string; author: string; source: string }[];
+  /** 세로 홍보 영상 (public/ 기준). 없으면 섹션이 숨겨진다 */
+  video?: { src: string; poster: string; label: string };
   /** 자주 묻는 질문 — 비어 있으면 섹션이 숨겨진다 */
   faq: { q: string; a: string }[];
   socials: SocialItem[];
@@ -118,6 +120,11 @@ export const profile: Profile = {
       url: "https://www.youtube.com/@mychairkr",
     },
   ],
+  video: {
+    src: "/promo.mp4",
+    poster: "/promo-poster.jpg",
+    label: "나의자랑 하이백 메쉬 의자 15초 소개 영상",
+  },
   installs: {
     images: [
       { src: "/install1.jpg", alt: "메쉬 의자가 줄지어 놓인 교육시설 강의실" },

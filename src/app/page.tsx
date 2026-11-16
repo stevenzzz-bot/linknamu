@@ -3,6 +3,7 @@ import Faq from "@/components/Faq";
 import Installs from "@/components/Installs";
 import LinkCard from "@/components/LinkCard";
 import ProfileHeader from "@/components/ProfileHeader";
+import PromoVideo from "@/components/PromoVideo";
 import Reviews from "@/components/Reviews";
 import SiteFooter from "@/components/SiteFooter";
 import SocialLinks from "@/components/SocialLinks";
@@ -25,6 +26,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <PromoVideo video={profile.video} />
         <Installs installs={profile.installs} />
         <Reviews reviews={profile.reviews} />
         <Faq faq={profile.faq} />
