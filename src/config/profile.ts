@@ -122,7 +122,7 @@ export const profile: Profile = {
         discount: "49%",
         now: "78,800원",
         shipping: "무료배송",
-        arrival: "다음 날 도착 98%",
+        arrival: "내일 98% 도착",
         perks: ["5년 무상 A/S"],
         cta: "스마트스토어에서 구매하기",
       },
