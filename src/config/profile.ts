@@ -122,9 +122,8 @@ export const profile: Profile = {
         discount: "49%",
         now: "78,800원",
         shipping: "무료배송",
-        effective: "73,012원",
         arrival: "다음 날 도착 98%",
-        perks: ["5년 무상 A/S", "수원 매장 시착"],
+        perks: ["5년 무상 A/S"],
         cta: "스마트스토어에서 구매하기",
       },
       showStars: true,
@@ -144,15 +143,13 @@ export const profile: Profile = {
       placement: "grid",
       short: "대량 견적",
       title: "학원·사무실 대량 견적",
-      description: "10대부터, 견적서 1영업일 안에",
       url: "https://mychairkr.netlify.app",
     },
     {
       id: "all-products",
       mark: "naver",
       title: "전체 상품 보기",
-      // 하이백 가격은 첫 카드에만. 미들백은 상품 47,000원 + 배송비 6,000원 = 53,000원
-      description: "하이백 · 미들백\u00a053,000원 (배송비\u00a0포함)",
+      placement: "hidden",
       url: "https://smartstore.naver.com/kickrider",
     },
     {
@@ -160,8 +157,7 @@ export const profile: Profile = {
       mark: "naver-map",
       placement: "grid",
       short: "매장 방문",
-      title: "수원에서 직접 앉아보기",
-      description: "방문 전 연락 주시면 안내드려요",
+      title: "수원 매장에서 앉아보기",
       url: `https://map.naver.com/p/search/${encodeURIComponent(STORE_ADDRESS)}`,
     },
     {
@@ -223,27 +219,27 @@ export const profile: Profile = {
   photoReviews: [
     {
       src: "/reviews/r1.jpg",
-      text: "서재용으로 샀는데 너무 편하다더니 딸아이한테 뺏겼어요.. 헤드레스트랑 등받이 메쉬 감싸주는 게 대박입니다.",
+      text: "너무 편하다더니 딸아이한테 뺏겼어요..",
       meta: "164cm · 스마트스토어 구매",
     },
     {
       src: "/reviews/r2.jpg",
-      text: "만원더주고 그레이색상을 했는데, 흰색 책상과 잘 어울립니다. 헤드 레스트도 조절이되서 머리와 목을 잘 받쳐주어서 편하구요",
+      text: "그레이색상을 했는데, 흰색 책상과 잘 어울립니다.",
       meta: "bban님 · 클라우드 그레이",
     },
     {
       src: "/reviews/r3.jpg",
-      text: "평소에 오래 앉아서 작업할 일이 많아 허리가 왕왕 뻐근했는데, 이 의자로 바꾸고 나서 피로도가 아예 없네요?!!",
+      text: "이 의자로 바꾸고 나서 피로도가 아예 없네요?!!",
       meta: "160cm · 스마트스토어 구매",
     },
     {
       src: "/reviews/r4.jpg",
-      text: "쿠션감은 너무 푹신하지 않고 오래 앉아있을 때 엉덩이 안아픈 정도로 딱 좋아요.",
+      text: "오래 앉아있을 때 엉덩이 안아픈 정도로 딱 좋아요.",
       meta: "170cm · 스마트스토어 구매",
     },
     {
       src: "/reviews/r5.jpg",
-      text: "의자가 생각보다 무거운데 그만큼 단단하니 좋네요! 조립법도 상세히 설명해주셔서 잘 따라서 할 수 있었네요",
+      text: "생각보다 무거운데 그만큼 단단하니 좋네요!",
       meta: "스마트스토어 구매",
     },
   ],
@@ -254,8 +250,8 @@ export const profile: Profile = {
       desc: "헤드레스트 · 오래 앉는 분께",
       linkId: "highback",
       colors: [
-        { name: "잉크 블랙", swatch: "#1f1f1f", price: "78,800원", src: "/colors/black.jpg" },
         { name: "클라우드 그레이", swatch: "#c9ccce", price: "88,800원", src: "/colors/gray.jpg" },
+        { name: "잉크 블랙", swatch: "#1f1f1f", price: "78,800원", src: "/colors/black.jpg" },
       ],
     },
     {
@@ -263,8 +259,8 @@ export const profile: Profile = {
       desc: "가볍고 깔끔하게 · 학원·독서실 납품 모델",
       linkId: "middleback",
       colors: [
-        { name: "잉크 블랙", swatch: "#1f1f1f", price: "53,000원", src: "/colors/mid-black.jpg" },
         { name: "미스티 틸", swatch: "#3f8f96", price: "58,000원", src: "/colors/mid-teal.jpg" },
+        { name: "잉크 블랙", swatch: "#1f1f1f", price: "53,000원", src: "/colors/mid-black.jpg" },
       ],
     },
   ],

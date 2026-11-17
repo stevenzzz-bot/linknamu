@@ -32,9 +32,10 @@ function ProductPick({ p }: { p: Product }) {
           ))}
         </span>
         <span className="mt-3 block text-lg font-extrabold leading-tight text-heading">{p.name}</span>
-        <span className="mt-0.5 block text-[15px] text-ink">{c.price}</span>
+        <span className="mt-0.5 block text-sm text-muted">{c.name}</span>
+        <span className="block text-[15px] font-semibold text-ink">{c.price}</span>
       </a>
-      <div className="mt-2 flex items-center gap-2" role="radiogroup" aria-label={`${p.name} 색상`}>
+      <div className="-ml-2.5 mt-1 flex items-center" role="radiogroup" aria-label={`${p.name} 색상`}>
         {p.colors.map((col, k) => (
           <button
             key={col.name}
@@ -51,7 +52,6 @@ function ProductPick({ p }: { p: Product }) {
             />
           </button>
         ))}
-        <span className="text-sm text-muted">{c.name}</span>
       </div>
     </li>
   );
@@ -61,9 +61,7 @@ export default function Colors({ products }: { products: Profile["products"] }) 
   if (products.length === 0) return null;
   return (
     <section className="mt-16" aria-labelledby="colors-title">
-      <SectionTitle id="colors-title" note="배송비 포함">
-        제품·색상 고르기
-      </SectionTitle>
+      <SectionTitle id="colors-title">제품 고르기</SectionTitle>
       <ul className="mt-5 grid grid-cols-2 gap-x-3 gap-y-6">
         {products.map((p) => (
           <ProductPick key={p.name} p={p} />

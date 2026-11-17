@@ -68,7 +68,7 @@ export default function ShipTimer({ arrival }: { arrival: string }) {
         )}
       </span>
       <span className="mt-1 block text-[13px] text-white/65">
-        평일 오후 2시 전 주문 시 당일 출고 · {arrival}
+        평일 오후 2시 전 주문 · {arrival}
       </span>
     </span>
   );

@@ -1,11 +1,8 @@
-/** 섹션 제목 — 장식 없이 크기와 굵기만으로 */
-export default function SectionTitle({ id, children, note }: { id: string; children: React.ReactNode; note?: React.ReactNode }) {
+/** 섹션 제목 — 선·보조문구 없이 글자 하나로 */
+export default function SectionTitle({ id, children }: { id: string; children: React.ReactNode; note?: React.ReactNode }) {
   return (
-    <div className="reveal flex items-baseline justify-between gap-3 border-b-2 border-heading pb-3">
-      <h2 id={id} className="text-[22px] font-extrabold leading-tight text-heading">
-        {children}
-      </h2>
-      {note && <p className="flex-none text-sm text-muted">{note}</p>}
-    </div>
+    <h2 id={id} className="reveal text-xl font-extrabold leading-tight text-heading">
+      {children}
+    </h2>
   );
 }

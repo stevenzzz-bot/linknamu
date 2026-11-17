@@ -16,7 +16,7 @@ type Props = {
 
 const go = (l: LinkItem) => `/go/${encodeURIComponent(l.id)}`;
 const rowClass =
-  "group flex min-h-[60px] w-full items-center gap-3 py-3.5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
+  "group flex min-h-[56px] w-full items-center gap-3 py-3.5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
 
 function Row({ title, desc }: { title: string; desc?: string }) {
   return (
@@ -56,14 +56,14 @@ export default function ActionList({ kakao, rows, video, videoLink }: Props) {
         {rows.map((l) => (
           <li key={l.id}>
             <a href={go(l)} target="_blank" rel="nofollow noopener noreferrer" className={rowClass}>
-              <Row title={l.title} desc={l.description} />
+              <Row title={l.title} />
             </a>
           </li>
         ))}
         {video && (
           <li>
             <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} className={rowClass}>
-              <Row title={open ? "영상 닫기" : "15초 영상으로 보기"} desc="소리 없이 바로 재생돼요" />
+              <Row title={open ? "영상 닫기" : "15초 영상 보기"} />
             </button>
             {open && (
               <div className="pb-5">

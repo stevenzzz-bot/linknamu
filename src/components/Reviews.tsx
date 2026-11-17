@@ -3,53 +3,29 @@ import SectionTitle from "@/components/SectionTitle";
 import Stars from "@/components/Stars";
 import type { Profile } from "@/config/profile";
 
-/** 구매자 리뷰 — 카드·태그 없이 인용문 타이포그래피로 */
-type Props = { reviews: Profile["reviews"]; photos?: Profile["photoReviews"]; tags?: string[] };
-
-export default function Reviews({ reviews, photos = [], tags = [] }: Props) {
+/** 구매자 사진 리뷰 — 옆으로 넘겨보는 한 줄 */
+export default function Reviews({ photos = [] }: { photos?: Profile["photoReviews"] }) {
+  if (photos.length === 0) return null;
   return (
     <section className="mt-16" aria-labelledby="reviews-title">
-      <SectionTitle
-        id="reviews-title"
-        note={
-          <>
-            <Stars label="별점 5점 만점에 4.9점" className="mr-1 text-point" />
-            4.9
-          </>
-        }
+      <div className="flex items-baseline justify-between gap-3">
+        <SectionTitle id="reviews-title">구매자 리뷰</SectionTitle>
+        <span className="flex-none text-sm text-muted">
+          <Stars label="별점 5점 만점에 4.9점" className="mr-1 text-point" />
+          4.9
+        </span>
+      </div>
+      <ul
+        className="reveal -mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        aria-label="구매자 사진 리뷰 (옆으로 넘겨보세요)"
       >
-        구매자 리뷰
-      </SectionTitle>
-      {photos.length > 0 && (
-        <ul
-          className="reveal -mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          aria-label="구매자 사진 리뷰 (옆으로 넘겨보세요)"
-        >
-          {photos.map((p) => (
-            <li key={p.src} className="flex w-[300px] flex-none snap-start gap-3">
-              <div className="relative aspect-square w-[104px] flex-none overflow-hidden rounded-xl bg-placeholder">
-                <Image src={p.src} alt="구매자가 찍은 의자 사진" fill sizes="104px" className="object-cover" />
-              </div>
-              <div className="min-w-0">
-                <p className="line-clamp-4 text-[15px] leading-relaxed text-heading">{p.text}</p>
-                <p className="mt-1.5 text-[13px] text-muted">{p.meta}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-      {tags.length > 0 && (
-        <p className="reveal mt-4 text-[15px] leading-relaxed text-muted">
-          자주 나온 말 <span className="font-semibold text-ink">{tags.map((t) => `“${t}”`).join("  ")}</span>
-        </p>
-      )}
-      <ul className="mt-2 divide-y divide-line">
-        {reviews.map((r) => (
-          <li key={r.text} className="reveal py-6">
-            <blockquote className="text-[17px] font-medium leading-[1.65] text-heading">{r.text}</blockquote>
-            <p className="mt-3 text-sm text-muted">
-              {r.author} · {r.source}
-            </p>
+        {photos.map((p) => (
+          <li key={p.src} className="w-[200px] flex-none snap-start">
+            <div className="relative aspect-square overflow-hidden rounded-xl bg-placeholder">
+              <Image src={p.src} alt="구매자가 찍은 의자 사진" fill sizes="200px" className="object-cover" />
+            </div>
+            <p className="mt-2.5 line-clamp-2 text-[15px] leading-snug text-heading">{p.text}</p>
+            <p className="mt-1 text-[13px] text-muted">{p.meta}</p>
           </li>
         ))}
       </ul>

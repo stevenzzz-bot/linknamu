@@ -30,12 +30,6 @@ export default function OfferCard({ link }: { link: LinkItem & { offer: Offer } 
       </span>
       <span className="mt-2.5 block text-[15px] leading-relaxed text-white/80">
         {[o.shipping, ...o.perks].filter(Boolean).join(" · ")}
-        {o.effective && (
-          <>
-            <br />
-            리뷰 적립 시 {o.effective}
-          </>
-        )}
       </span>
 
       {o.arrival && <ShipTimer arrival={o.arrival} />}

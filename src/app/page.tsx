@@ -1,7 +1,6 @@
 import ActionList from "@/components/ActionList";
 import Colors from "@/components/Colors";
 import Faq from "@/components/Faq";
-import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Installs from "@/components/Installs";
 import OfferCard from "@/components/OfferCard";
@@ -23,16 +22,15 @@ export default function Home() {
     <>
       <main className="mx-auto w-full max-w-[480px] px-5 pt-4 sm:pt-10">
         <Hero hero={profile.hero} />
-        <ProfileHeader name={profile.name} bio={profile.bio} logo={profile.logo} stats={profile.stats} />
+        <ProfileHeader name={profile.name} bio={profile.bio} logo={profile.logo} />
         {offer?.offer && (
           <div className="rise mt-7" style={{ "--i": 3 } as React.CSSProperties}>
             <OfferCard link={{ ...offer, offer: offer.offer }} />
           </div>
         )}
         <ActionList kakao={kakao} rows={rows} video={profile.video} videoLink={videoLink} />
-        <Reviews reviews={profile.reviews} photos={profile.photoReviews} tags={profile.reviewTags} />
+        <Reviews photos={profile.photoReviews} />
         <Colors products={profile.products} />
-        <Features features={profile.features} />
         <Installs installs={profile.installs} />
         <Faq faq={profile.faq} />
         <SocialLinks socials={socials} />
