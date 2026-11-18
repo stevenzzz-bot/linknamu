@@ -28,9 +28,19 @@ export default function OfferCard({ link }: { link: LinkItem & { offer: Offer } 
         <span className="text-[30px] font-extrabold leading-none text-point-on-dark">{o.discount}</span>
         <span className="text-[30px] font-extrabold leading-none tracking-[-0.02em]">{o.now}</span>
       </span>
-      <span className="mt-2.5 block text-[15px] leading-relaxed text-white/80">
+      <span className="mt-2 block text-[15px] leading-relaxed text-white/80">
         {[o.shipping, ...o.perks].filter(Boolean).join(" · ")}
       </span>
+
+      {o.effective && (
+        <span className="mt-4 block rounded-xl bg-point-on-dark px-4 py-3 text-[#1d140e]">
+          <span className="flex items-baseline justify-between gap-3">
+            <span className="text-[15px] font-bold">혜택 체감가</span>
+            <span className="text-[26px] font-extrabold leading-none tracking-[-0.02em]">{o.effective}</span>
+          </span>
+          {o.effectiveNote && <span className="mt-1 block text-right text-[13px] text-[#1d140e]/75">{o.effectiveNote}</span>}
+        </span>
+      )}
 
       {o.arrival && <ShipTimer arrival={o.arrival} />}
 

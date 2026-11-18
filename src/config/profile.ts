@@ -28,6 +28,8 @@ export type LinkItem = {
     arrival?: string;
     /** 리뷰·구매 적립을 뺀 체감가 (조건부라 작게 표시) */
     effective?: string;
+    /** 체감가에 포함된 적립 설명 (작게 표시) */
+    effectiveNote?: string;
     perks: string[];
     cta: string;
   };
@@ -122,6 +124,9 @@ export const profile: Profile = {
         discount: "49%",
         now: "78,800원",
         shipping: "무료배송",
+        // 스토어 상세 이미지 기준: 판매가 78,800 - 적립 5,788(포토리뷰 2,000·한달리뷰 2,000·알림받기 1,000·구매 1% 788)
+        effective: "73,012원",
+        effectiveNote: "알림받기·리뷰 적립 5,788원 포함",
         arrival: "내일 98% 도착",
         perks: ["5년 무상 A/S"],
         cta: "스마트스토어에서 구매하기",
